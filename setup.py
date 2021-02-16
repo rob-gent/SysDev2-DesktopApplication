@@ -4,7 +4,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="Desktop-Application-rmg226",
+    name="DesktopApplication-rmg226",
     version="0.0.1",
     author="Robson Gent",
     author_email="rmg226@exeter.ac.uk",
