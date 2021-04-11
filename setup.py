@@ -14,7 +14,7 @@ setuptools.setup(
     url="https://github.com/rob-gent/SysDev2-DesktopApplication.git",
     packages=setuptools.find_packages(),
     classifiers=[
-        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.6",
         "License :: Creative Commons Zero v1.0 Universal",
         "Operating System :: Windows 10 installations",
     ],
