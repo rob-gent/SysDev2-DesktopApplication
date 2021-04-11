@@ -1,0 +1,190 @@
+WindowManager:
+    Dashboard:
+    ViewAllOrders:
+    OrdersAwaitingPicking:
+    OrdersAwaitingPacking:
+    OrdersAwaitingPostage:
+    ApplicationSettings:
+
+
+<MyClock>
+    Label:
+        id: time
+        pos: root.x + root.width/2.25, root.y + root.height/50
+        size: root.width/12, root.height
+        font_size: 50
+
+<MyCalendar>:
+    Label:
+        id: date
+        pos: root.x  + root.width/2.25, root.y + root.height/50
+        size: root.width/12, root.height
+        text: "DATE"
+        font_size: 50
+
+<Dashboard>:
+    name: "Dashboard"
+
+    GridLayout:
+        rows: 3
+        cols: 2
+        size: root.width, root.height
+
+        MyClock:
+            id:time
+            text: ""
+            font_size: 50
+
+        MyCalendar:
+            id: date
+            text: ""
+            font_size: 50
+
+        Button:
+            text: "All Orders"
+            text_size: self.size
+            font_size: 30
+            halign: 'center'
+            valign: 'center'
+            size_hint_x: 1
+            on_release: 
+                app.root.current = "ViewAllOrders"
+                root.manager.transition.direction = "down"
+        Button:
+            text: "Orders awaiting picking"
+            text_size: self.size
+            font_size: 30
+            halign: 'center'
+            valign: 'center'
+            size_hint_x: 1
+            on_release: 
+                app.root.current = "OrdersAwaitingPicking"
+                root.manager.transition.direction = "down"
+
+        Button:
+            text: "Orders awaiting packing"
+            text_size: self.size
+            font_size: 30
+            halign: 'center'
+            valign: 'center'
+            size_hint_x: 1
+            on_release: 
+                app.root.current = "OrdersAwaitingPacking"
+                root.manager.transition.direction = "down"
+
+        Button:
+            text: "Orders awaiting postage"
+            text_size: self.size
+            font_size: 30
+            halign: 'center'
+            valign: 'center'
+            size_hint_x: 1
+            on_release: 
+                app.root.current = "OrdersAwaitingPostage"
+                root.manager.transition.direction = "down"
+
+<ViewAllOrders>:
+    name: "ViewAllOrders"
+
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+
+        Label:
+            text: "Second Screen"
+            font_size: 50
+
+        Button:
+            text: "Go to Dashboard"
+            font_size: 30
+            on_release:
+                app.root.current = "Dashboard"
+                root.manager.transition.direction = "left"
+
+        Button:
+            text: "Previous Screen"
+            font_size: 30
+            on_release:
+                app.root.current = "first"
+                root.manager.transition.direction = "up"
+
+<OrdersAwaitingPicking>:
+    name: "OrdersAwaitingPicking"
+    cols: 3
+
+    AnchorLayout:
+        anchor_x: 'right'
+        anchor_y: 'bottom'
+
+        Button:
+            text: "Home"
+            font_size: "30"
+            size_hint_x:0.5
+            size_hint_y:0.25
+            on_release:
+                app.root.current = "Dashboard"
+                root.manager.transition.direction = "left"
+
+    AnchorLayout:
+        anchor_x: 'left'
+        anchor_y: 'bottom'
+
+        Button:
+            text: "Dashboard"
+            font_size: "30"
+            anchor_x:'left'
+            anchor_y:'top'
+            size_hint_x:0.30
+            size_hint_y:0.10
+            on_release:
+                app.root.current = "Dashboard"
+                root.manager.transition.direction = "left"
+
+        # Label:
+        #     text: "I'm a Label"
+        #     font_size: "30"
+        #     anchor_x: 'center'
+        #     anchor_y: 'top'
+        #     size_hint: (0.5,0.5)
+
+<OrdersAwaitingPacking>:
+    name: "OrdersAwaitingPacking"
+
+    GridLayout:
+        cols:3
+        cols:2
+
+    DynamicButton:
+        text:"Test123"
+    DynamicLabel:
+        text:"456"
+
+
+
+<OrdersAwaitingPostage>:
+<ApplicationSettings>:
+
+<DynamicButton@Button>:
+    name: "DynamicPackingRow"
+
+    Button:
+        wid: "ViewOrder"
+        text: "Test"
+        text_size: self.size
+        font_size: 25
+        halign: 'center'
+        valign: 'center'
+        size_hint_x:0.5
+        size_hint_y:0.25
+        on_release:
+            
+<DynamicLabel@Label>:
+    Label:
+        wid: "OrderNum"
+        text: "Test"
+        font_size:25
+
+    Label:
+        wid: "ProdDesc"
+        text: "Item X"
+        font_size:25
